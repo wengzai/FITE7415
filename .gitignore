@@ -1,0 +1,91 @@
+# ============================================================
+# FITE7415 Git Ignore Rules
+# ============================================================
+# This file controls what files are excluded from GitHub and GitLab.
+# Update this file BEFORE each push to ensure sensitive data is protected.
+
+# ============================================================
+# 1. PRIVATE/SENSITIVE FILES (MUST NOT COMMIT)
+# ============================================================
+
+# User account credentials
+user_account.txt
+
+# Internal logs and temporary files
+Program/cmd.md
+Program/temp.md
+
+# Git upload rules tracker (meta file, not needed in repo)
+.git-upload-rules
+
+# ============================================================
+# 2. ADDITIONAL EXCLUSIONS (as marked by user)
+# ============================================================
+# When user marks additional files as "no commit", add them here.
+# Format: Mark in code with comment "# NOCOMMIT" then add path below
+# Example:
+# Program/some_file.md  # User marked: 2026-04-24
+
+# ============================================================
+# 3. COMMON EXCLUSIONS (OS and IDE)
+# ============================================================
+
+# VS Code
+.vscode/settings.json
+.vscode/extensions.json
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+
+# ============================================================
+# 4. BACKUP AND CACHE
+# ============================================================
+
+*.bak
+*.backup
+*.swp
+.cache/
+*.log
+
+# ============================================================
+# IMPORTANT NOTICE
+# ============================================================
+# This .gitignore file itself WILL be committed to both GitHub and GitLab.
+# It is safe to commit as it contains no sensitive information.
+# The .git-upload-rules file (which mirrors this) is NOT committed.

@@ -1,0 +1,14 @@
+Risk and Capital Checklist
+
+[ ] Max acceptable drawdown is defined
+[ ] Max risk per trade is defined
+[ ] Max daily loss stop is defined
+[ ] Position size min/max is defined
+[ ] Concurrent positions cap is defined
+[ ] Leverage policy is defined
+[ ] Expected transaction cost is modeled
+[ ] Slippage assumption is modeled
+[ ] Liquidity constraints are considered
+[ ] Strategy capacity assumption is documented
+[ ] Kill-switch conditions are documented
+[ ] Failure mode and fallback action are documented
