@@ -202,6 +202,46 @@ Profit Factor:           2.04
 
 ## Setup and Execution
 
+### Fastest Reproduction Path
+
+If your goal is to reproduce the main result with the fewest moving parts, use the ALGOGENE Web UI instead of the API example below.
+
+1. Open ALGOGENE and go to **Algo Research Lab**.
+2. Upload `Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py`.
+3. Use the following backtest settings exactly:
+
+| Field | Value |
+|-------|-------|
+| Strategy Name | XAUUSD-ZEntry-Grid-R26 |
+| Subscribe List | XAUUSD |
+| Start Date | 2023-01 |
+| End Date | 2025-12 |
+| Initial Capital | 10000 |
+| Base Currency | USD |
+| Risk Free Rate | 0 |
+| Leverage | 1 |
+| Allow Short Sell | False |
+| Dataset | 1440 (1-day) |
+| Position Base Env | False |
+| News Feed | False |
+| Economics Feed | False |
+| Weather Feed | False |
+
+4. Run the backtest and compare the result against the target metrics below.
+
+### Reproduction Success Criteria
+
+Treat the run as successfully reproduced if the output is close to the following full-sample metrics:
+
+| Metric | Target |
+|--------|--------|
+| TradeCnt | 100 |
+| TotalPnL | +601.6870 |
+| Sharpe | 1.1869 |
+| MaxDD | 0.01281 |
+
+Minor differences can happen because of platform-side execution details, but the trade count, Sharpe level, and drawdown profile should remain close to the values above.
+
 ### Prerequisites
 
 1. **Python 3.8+** with standard scientific stack (pandas, numpy)
@@ -216,10 +256,12 @@ Profit Factor:           2.04
 1. Log in to [algogene.com](https://algogene.com)
 2. Navigate to **Algo Research Lab**
 3. Upload code from `Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py`
-4. Set backtest window: 2023-01 to 2025-12
+4. Set the exact parameters listed in **Fastest Reproduction Path** above
 5. Click **Submit** and monitor task status
 
 #### Option 2: Via API (Python)
+This option is only for teammates who already have a working ALGOGENE Python integration. For most users, the Web UI path above is the recommended reproduction route.
+
 ```python
 from algogene_sdk import AlgoAPIUtil, backtest_run, get_task_status
 
@@ -350,9 +392,9 @@ The final course report should reference:
 
 To reproduce all results:
 1. Clone this repository
-2. Configure your own ALGOGENE credentials locally
-3. Run strategy via ALGOGENE API or UI
-4. Compare against reported metrics
+2. Open `Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py`
+3. Run the strategy with the exact settings in **Fastest Reproduction Path**
+4. Compare your output against the **Reproduction Success Criteria** table
 
 ### Backtest Assumptions
 

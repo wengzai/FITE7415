@@ -105,11 +105,11 @@ Round 31（如需）：最终成本/滑点敏感性验证
 
 ---
 
-## 6. cmd.md 指令规范
+## 6. 自动化指令规范
 
-### 6.1 如何在 cmd.md 中添加新指令
+### 6.1 如何添加新指令
 
-每次启动新一轮自动化优化时，在 `Program/cmd.md` 末尾追加一条 `/autoApprove` 指令，格式如下：
+每次启动新一轮自动化优化时，追加一条 `/autoApprove` 指令，格式如下：
 
 ```
 /autoApprove 从round{N}开始执行方案B主线多轮自动化优化（无需再次确认），以 Program/XAUUSD/code/xauusd_mainline_v1.py（round23）作为固定对照基线；每轮优先只改一个模块并生成对应报告（存入 Program/B-mainline/reports/）；代码存入 Program/B-mainline/code/；每轮至少验证全样本（2023-01~2025-12）与弱窗口（2025-07~2025-12）；当满足优化完成条件时自动停止，或本次自动化轮次超过15轮时强制停止，并输出总结到 Program/B-mainline/reports/B-mainline-optimization-closeout.md。
