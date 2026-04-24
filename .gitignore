@@ -69,6 +69,9 @@ ENV/
 env/
 .venv
 
+# Explicitly track the local modified MCP package
+!algogene_mcp_server/
+
 # IDE
 .idea/
 *.swp
