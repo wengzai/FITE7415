@@ -3464,12 +3464,23 @@ def validate_configuration() -> bool:
     Returns:
         bool: True if configuration is valid and secure, False otherwise
     """
+    def _session_token(response):
+        if not isinstance(response, dict):
+            return ""
+        token = response.get("token")
+        if token:
+            return token
+        nested = response.get("res")
+        if isinstance(nested, dict):
+            return nested.get("token", "")
+        return ""
+
     try:
         import utils
         
         # Validate API credentials security
         status, res = utils.validate_api_credentials()
-        if status==200 and res.get('token')!="":
+        if status == 200 and _session_token(res):
             logger.info("Configuration validated successfully")
             return True
         else:

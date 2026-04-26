@@ -6,18 +6,18 @@ Quantitative trading strategy research project for HKU FITE7415. This repository
 
 The final selected strategy is `XAUUSD-ZEntry-Grid`, a daily mean-reversion strategy on XAUUSD.
 
-- Main script: `Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py`
-- Selected round: Round 26
-- Core idea: enter when price is sufficiently below a 20-day mean, then manage risk with ATR-based stop loss, take profit, and a max holding period
+- Main script: `Program/XAUUSD-ZEntry-Grid/code/xauusd_round35_stop1_10_v1.py`
+- Selected round: Round 35
+- Core idea: enter when price is at least 0.75 standard deviations below a 20-day mean, then manage risk with a 1.10 x ATR stop loss, 4.0 x ATR take profit, and a 5-day max holding period
 
 ### Final Result vs Baseline
 
 | Metric | Final Strategy | Baseline (Round 23) |
 |--------|----------------|---------------------|
-| Sharpe | 1.1869 | 0.7956 |
-| MaxDD | 0.01281 | 0.02653 |
-| TotalPnL | +601.6870 | +696.9780 |
-| TradeCnt | 100 | 280 |
+| Sharpe | 1.7139 | 0.7956 |
+| MaxDD | 0.01293 | 0.02653 |
+| TotalPnL | +1071.3050 | +696.9780 |
+| TradeCnt | 112 | 280 |
 
 ## How To Reproduce
 
@@ -27,7 +27,7 @@ The recommended path is the ALGOGENE Web UI. This is the simplest way for teamma
 
 Use:
 
-`Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py`
+`Program/XAUUSD-ZEntry-Grid/code/xauusd_round35_stop1_10_v1.py`
 
 ### Backtest Settings
 
@@ -35,7 +35,7 @@ Use these values exactly:
 
 | Field | Value |
 |-------|-------|
-| Strategy Name | XAUUSD-ZEntry-Grid-R26 |
+| Strategy Name | XAUUSD-ZEntry-Grid-R35 |
 | Subscribe List | XAUUSD |
 | Start Date | 2023-01 |
 | End Date | 2025-12 |
@@ -54,7 +54,7 @@ Use these values exactly:
 
 1. Log in to `algogene.com`.
 2. Open **Algo Research Lab**.
-3. Upload `Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py`.
+3. Upload `Program/XAUUSD-ZEntry-Grid/code/xauusd_round35_stop1_10_v1.py`.
 4. Enter the exact settings from the table above.
 5. Submit the backtest.
 6. Compare the output with the target metrics below.
@@ -65,10 +65,10 @@ Treat the run as successfully reproduced if the full-sample result is close to:
 
 | Metric | Target |
 |--------|--------|
-| TradeCnt | 100 |
-| TotalPnL | +601.6870 |
-| Sharpe | 1.1869 |
-| MaxDD | 0.01281 |
+| TradeCnt | 112 |
+| TotalPnL | +1071.3050 |
+| Sharpe | 1.7139 |
+| MaxDD | 0.01293 |
 
 Small differences can occur because of platform-side execution details, but the trade count, Sharpe level, and drawdown profile should remain close.
 
@@ -205,7 +205,7 @@ The primary tool for running backtests programmatically is `backtest_run`. Here 
 ### Step 1 — Read the strategy script
 
 ```python
-with open("Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py", "r") as f:
+with open("Program/XAUUSD-ZEntry-Grid/code/xauusd_round35_stop1_10_v1.py", "r") as f:
     code = f.read()
 ```
 
@@ -213,7 +213,7 @@ with open("Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py", "r
 
 ```python
 settings = {
-    "strategyName": "XAUUSD-ZEntry-Grid-R26",
+    "strategyName": "XAUUSD-ZEntry-Grid-R35",
     "subscribeList": ["XAUUSD"],
     "startDate": "2023-01",
     "endDate": "2025-12",
@@ -326,7 +326,7 @@ The recommended workflow for AI-assisted strategy modification:
 
 1. **Open VS Code** and ensure the MCP server is connected (check Copilot chat panel)
 2. **Ask Copilot** to fetch recent price data: `"Call get_history_price for XAUUSD, daily bars, 2023-01 to 2025-12"`
-3. **Ask Copilot** to modify a parameter and submit a backtest: `"Change Z-score threshold from 1.5 to 2.0 in xauusd_round26_zentry_m1_0_v1.py and run a backtest with the standard settings"`
+3. **Ask Copilot** to modify a parameter and submit a backtest: `"Change stop ATR multiple in xauusd_round35_stop1_10_v1.py and run a backtest with the standard settings"`
 4. **Wait** — Copilot will call `backtest_run`, then poll `get_task_status` automatically
 5. **Compare** — Ask Copilot to call `strategy_stats` and compare Sharpe / MaxDD against the target table above
 6. **Iterate** — Adjust and repeat
@@ -356,7 +356,8 @@ The recommended workflow for AI-assisted strategy modification:
 
 ## Key Research Files
 
-- Main winner report: `Program/XAUUSD-ZEntry-Grid/reports/26th-round.md`
+- Final report draft: `Program/XAUUSD-ZEntry-Grid/final_report/Final_Report.md`
+- Main winner report: `Program/XAUUSD-ZEntry-Grid/reports/35th-round.md`
 - Final closeout: `Program/XAUUSD-ZEntry-Grid/reports/B-mainline-optimization-closeout.md`
 - Baseline reference: `Program/XAUUSD/code/xauusd_mainline_v1.py`
 
@@ -389,6 +390,6 @@ For questions about this project:
 
 ---
 
-**Last Updated**: 2026-04-24  
+**Last Updated**: 2026-04-25
 **Status**: ✅ Production Ready  
 **Next Steps**: Final course report submission

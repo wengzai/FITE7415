@@ -10,10 +10,15 @@
 
 # User account credentials
 user_account.txt
+.env
+.env.local
+.env.*.local
+!.env.example
 
 # Internal logs and temporary files
 Program/cmd.md
 Program/temp.md
+Program/**/backtests/
 
 # Git upload rules tracker (meta file, not needed in repo)
 .git-upload-rules

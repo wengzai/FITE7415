@@ -1,6 +1,6 @@
 ﻿# FITE7415 Project Overview
 
-## 0. 最新状态（2026-04-24）
+## 0. 最新状态（2026-04-25）
 
 ### 0.1 文件结构
 
@@ -11,13 +11,17 @@
 | `Program/XAUUSD/code/` | 方案B影子 + 主线候选脚本，rounds 13–24 |
 | `Program/XAUUSD/reports/` | 方案B影子执行报告 |
 | `Program/Mixed/reports/` | 混合过渡阶段报告（rounds 13–14） |
-| `Program/XAUUSD-ZEntry-Grid/code/` | 方案B主线优化脚本（round 25 起，当前主线为 round26） |
+| `Program/XAUUSD-ZEntry-Grid/code/` | 方案B主线优化脚本（round 25 起，当前主线为 round35） |
 | `Program/XAUUSD-ZEntry-Grid/reports/` | 方案B主线执行报告与收官文件 |
 
 ### 0.2 当前主线与对照
 
-1. **当前默认主线**：`Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py`（round26 优化胜出）
+1. **当前默认主线**：`Program/XAUUSD-ZEntry-Grid/code/xauusd_round35_stop1_10_v1.py`（round35 优化胜出）
 2. 对照基线：
+   - 上一版主线对照：`Program/XAUUSD-ZEntry-Grid/code/xauusd_round33_zentry_m0_75_v1.py`
+   - Stop-grid 对照：`Program/XAUUSD-ZEntry-Grid/code/xauusd_round30_hold5_tp4_stop1_15_v1.py`
+   - 收益-风险对照：`Program/XAUUSD-ZEntry-Grid/code/xauusd_round29_hold5_tp4_0_v1.py`
+   - 保守对照：`Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py`
    - 高收益对照：`Program/XAUUSD/code/xauusd_round21_sizingfix_v1.py`
    - Legacy A-main 对照：`Program/BTCUSD/code/btcusd_round14_regime_v2.py`
 
@@ -29,7 +33,7 @@
 | 混合过渡 | rounds 13–14 | ✅ 完成 |
 | 方案B影子优化（XAUUSD） | rounds 15–23 | ✅ 完成，round23 选定为主线候选 |
 | 成本敏感性验证 | round 24 | ✅ 完成，见 `Program/XAUUSD/reports/24th-round.md` |
-| **方案B主线优化** | rounds 25–27 | ✅ 已收官，见 `Program/XAUUSD-ZEntry-Grid/reports/B-mainline-optimization-closeout.md` |
+| **方案B主线优化** | rounds 25–35 | ✅ 已更新，见 `Program/XAUUSD-ZEntry-Grid/reports/35th-round.md` 与 `Program/XAUUSD-ZEntry-Grid/reports/B-mainline-optimization-closeout.md` |
 
 ## 1. 我对作业的理解
 
